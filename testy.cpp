@@ -7,29 +7,6 @@
  using namespace std;
  using namespace chrono;
 
- dynamicArray dynamicArray::kopia() const{ //tworzenie kopii tablicy
-    dynamicArray copy;
-    copy.resize(capacity); 
-    copy.size = size;
-    for(int i = 0; i < size; i++)
-        copy.tab[i] = tab[i];
-    return copy;
-}
-
-linkedList linkedList::kopiaL() const{ //tworzenie kopii listy
-    linkedList copy;
-    copy.size = size;
-    copy.head = nullptr;
-    copy.tail = nullptr;
-
-    node* tmp = head; //przypisanie wskaznika do head
-    while(tmp != nullptr){ //przeszukiwanie listy
-        copy.addTail(tmp->data); //dodanie elementu do kopii
-        tmp = tmp->link;         //przejscie do nastepnego wezla
-    }
-    return copy;
-}
-
  void testowanie::test(int struktura, int operacja, int rozmiar){
     if(struktura == 1){   //dynamiczna tablica
        
@@ -51,9 +28,6 @@ linkedList linkedList::kopiaL() const{ //tworzenie kopii listy
             for(int i = 0; i < rozmiar;i++ )
                 tab.addBack(rand()); //dodanie losowych wartosci do tablicy
     
-            dynamicArray copy = tab.kopia(); // kopiowanie dynamicznej tablicy
-
-
             switch(operacja){
                 case 1: //dodanie na poczatek
                 {
@@ -115,8 +89,7 @@ linkedList linkedList::kopiaL() const{ //tworzenie kopii listy
                     cout<<"Nieznana operacja"<<endl;
                     break;
             }
-    }
-    
+    }  
     switch(operacja){
         case 1: 
             cout<<"Dodawanie na poczatek: "<<pomiarDodawaniePrzod/100/1000<<" us ["<<rozmiar<<"]"<<endl;
@@ -155,13 +128,12 @@ linkedList linkedList::kopiaL() const{ //tworzenie kopii listy
 
         for (int testIndex = 0; testIndex < 100; testIndex++){
             linkedList lista; //utworzenie
-            
+
             srand(testIndex+200); //losowanie wartosci ze stalym ziarnem
 
             for(int i = 0; i < rozmiar;i++ )
                 lista.addTail(rand()); //dodanie losowych wartosci do tablicy
     
-            linkedList copy = lista.kopiaL(); // kopiowanie dynamicznej tablicy
 
         switch(operacja){
             case 1: //dodanie na poczatek
@@ -246,7 +218,5 @@ linkedList linkedList::kopiaL() const{ //tworzenie kopii listy
             break;
     }
     } 
-
-
 }
  

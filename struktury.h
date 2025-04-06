@@ -5,8 +5,6 @@ class dynamicArray{
     public:
         dynamicArray();
         ~dynamicArray();
-
-        dynamicArray kopia() const;
             
         void addFront(int war);
         void addBack(int war);
@@ -37,8 +35,6 @@ class linkedList{
     public:
         linkedList();
         ~linkedList();
-
-        linkedList kopiaL() const;
         
         void addHead(int war);
         void addTail(int war);
