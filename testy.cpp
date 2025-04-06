@@ -32,7 +32,6 @@ linkedList linkedList::kopiaL() const{ //tworzenie kopii listy
 
  void testowanie::test(int struktura, int operacja, int rozmiar){
     if(struktura == 1){   //dynamiczna tablica
-        dynamicArray tab; //utworzenie
        
         //czasy
         double pomiarDodawaniePrzod  = 0;
@@ -45,6 +44,8 @@ linkedList linkedList::kopiaL() const{ //tworzenie kopii listy
 
       
         for (int testIndex = 0; testIndex < 100; testIndex++){
+            dynamicArray tab; //utworzenie
+
             srand(testIndex+200); //losowanie wartosci ze stalym ziarnem
 
             for(int i = 0; i < rozmiar;i++ )
@@ -142,7 +143,6 @@ linkedList linkedList::kopiaL() const{ //tworzenie kopii listy
   
     }
     else if(struktura == 2){//lista jednokierunkowa
-        linkedList lista;
 
         //czasy
         double pomiarDodawaniePrzod  = 0;
@@ -154,6 +154,8 @@ linkedList linkedList::kopiaL() const{ //tworzenie kopii listy
         double pomiarZnalezienie     = 0;
 
         for (int testIndex = 0; testIndex < 100; testIndex++){
+            linkedList lista; //utworzenie
+            
             srand(testIndex+200); //losowanie wartosci ze stalym ziarnem
 
             for(int i = 0; i < rozmiar;i++ )
