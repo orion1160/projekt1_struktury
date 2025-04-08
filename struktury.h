@@ -3,7 +3,7 @@
 
 class dynamicArray{
     public:
-        dynamicArray();
+        dynamicArray(int pojemnosc);
         ~dynamicArray();
             
         void addFront(int war);

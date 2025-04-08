@@ -21,7 +21,7 @@
 
       
         for (int testIndex = 0; testIndex < 100; testIndex++){
-            dynamicArray tab; //utworzenie
+            dynamicArray tab(rozmiar); //utworzenie
 
             srand(testIndex+200); //losowanie wartosci ze stalym ziarnem
 
