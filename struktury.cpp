@@ -8,9 +8,9 @@
      return capacity;
  }
 
- dynamicArray::dynamicArray(){  //wartosci poczatkowe
+ dynamicArray::dynamicArray(int pojemnosc){  //wartosci poczatkowe
     size = 0;
-    capacity = 10;
+    capacity = pojemnosc;
     tab = new int[capacity];
  }
 
@@ -59,13 +59,17 @@ void dynamicArray::removeFront(){
         tab[i] = tab[i+1];  //przesuniecie elementow w lewo, nadpisanie pierwszego elementu
     
     size--;                 //zmniejszenie rozmiaru
+    if(size < capacity/4)   //jesli rozmiar spadnie ponizej 1/4 pojemnosci
+        resize(capacity/2); //realokacja pojemnosci
 }
 
 void dynamicArray::removeBack(){
     if(size == 0)
         return;             //jesli tablica pusta nie robimy nic
-    
+
     size--;                 //zmniejszenie rozmiaru
+    if(size < capacity/4)   //jesli rozmiar spadnie ponizej 1/4 pojemnosci
+        resize(capacity/2); //realokacja pojemnosci
 }
 
 void dynamicArray::removeAt(int index){
@@ -76,6 +80,8 @@ void dynamicArray::removeAt(int index){
         tab[i] = tab[i+1];  //dosuniecie elementow
     
     size--;                 //zmniejszenie rozmiaru
+    if(size < capacity/4)   //jesli rozmiar spadnie ponizej 1/4 pojemnosci
+        resize(capacity/2); //realokacja pojemnosci
 }
 
 bool dynamicArray::find(int war){
