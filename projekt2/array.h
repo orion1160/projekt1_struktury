@@ -6,13 +6,22 @@ class arrayQueue{
         arrayQueue(int size);
         ~arrayQueue();
 
-        void insert(int war, int prio);
+        void insert(int war, float prio);
         void extractMax();
-        void findMax();
-        void modify(int index, int newPrio);
-        void printSize();
+        element findMax();
+        void modify(int war, float newPrio);
+        int printSize();
+        
+    private:
+        int size;
+        int capacity;
+        element **tab;
+        void resize(int newCapacity);
 };
 
+struct element{
+    int wartosc;
+    int priorytet;
+};
 
 #endif
-
