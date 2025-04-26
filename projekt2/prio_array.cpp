@@ -32,20 +32,22 @@ void arrayQueue::insert(int war, float prio){
     size++;
 }
 
-void arrayQueue::extractMax(){
+element arrayQueue::extractMax(){
     if(size == 0)
-        return;
+        throw runtime_error("pusta kolejka"); //obsluga wyjatku
     
     element* maxElement = tab[0];   //pierwszy element ma najwiekszy prioytet
+    element wynik = *maxElement;    //zapisujemy wartosc elementu
     for(int i = 1; i < size; i++){
         tab[i-1] = tab[i];          //przesuwamy elementy w lewo
     }
     delete maxElement;              //zwalniamy pamiec
+    return wynik;                   //zwracamy wartosc elementu
     size--;
 }
 
 element arrayQueue::findMax(){
-    if (size == 0)
+    if(size == 0)
         throw runtime_error("pusta kolejka"); //obsluga wyjatku
     
     return *tab[0];                  //zwracamy pierwszy element

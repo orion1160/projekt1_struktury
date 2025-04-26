@@ -7,7 +7,7 @@ class arrayQueue{
         ~arrayQueue();
 
         void insert(int war, float prio);
-        void extractMax();
+        element extractMax();
         element findMax();
         void modify(int war, float newPrio);
         int printSize();
