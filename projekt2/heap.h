@@ -6,12 +6,25 @@ class heapQueue{
         heapQueue(int size);
         ~heapQueue();
 
-        void insert(int war, int prio);
-        void extractMax();
-        void findMax();
-        void modify(int index, int newPrio);
-        void printSize();
+        void insert(int war, float prio);
+        element extractMax();
+        element findMax();
+        void modify(int war, float newPrio);
+        int printSize();
+       
+        
+    private:
+        int size;
+        int capacity;
+        element **tab;
+        void resize(int newCapacity);
+        void heapifyUp(int index);
+        void heapifyDown(int index);
+};
 
+struct element{
+    int wartosc;
+    int priorytet;
 };
 
 #endif
