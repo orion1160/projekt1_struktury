@@ -1,6 +1,11 @@
 #ifndef HEAP_H
 #define HEAP_H
 
+struct element{
+    int wartosc;
+    int priorytet;
+};
+
 class heapQueue{
     public:
         heapQueue(int size);
@@ -12,7 +17,6 @@ class heapQueue{
         void modify(int war, float newPrio);
         int printSize();
        
-        
     private:
         int size;
         int capacity;
@@ -22,9 +26,6 @@ class heapQueue{
         void heapifyDown(int index);
 };
 
-struct element{
-    int wartosc;
-    int priorytet;
-};
+
 
 #endif
