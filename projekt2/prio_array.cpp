@@ -5,7 +5,7 @@ using namespace std;
 arrayQueue::arrayQueue(int pojemnosc){
     size = 0;
     capacity = pojemnosc;
-    tab = new element*[capacity];
+    tab = new elementArray*[capacity];
 };
 
 arrayQueue::~arrayQueue(){
@@ -18,7 +18,7 @@ void arrayQueue::insert(int war, float prio){
     if(size == capacity)
         resize(capacity*2);
 
-    element* newElement = new element;
+    elementArray* newElement = new elementArray;
     newElement->wartosc = war;
     newElement->priorytet = prio;
 
@@ -32,12 +32,12 @@ void arrayQueue::insert(int war, float prio){
     size++;
 }
 
-element arrayQueue::extractMax(){
+elementArray arrayQueue::extractMax(){
     if(size == 0)
         throw runtime_error("pusta kolejka"); //obsluga wyjatku
     
-    element* maxElement = tab[0];   //pierwszy element ma najwiekszy prioytet
-    element wynik = *maxElement;    //zapisujemy wartosc elementu
+    elementArray* maxElement = tab[0];   //pierwszy element ma najwiekszy prioytet
+    elementArray wynik = *maxElement;    //zapisujemy wartosc elementu
     for(int i = 1; i < size; i++){
         tab[i-1] = tab[i];          //przesuwamy elementy w lewo
     }
@@ -46,7 +46,7 @@ element arrayQueue::extractMax(){
     size--;
 }
 
-element arrayQueue::findMax(){
+elementArray arrayQueue::findMax(){
     if(size == 0)
         throw runtime_error("pusta kolejka"); //obsluga wyjatku
     
@@ -84,7 +84,7 @@ int arrayQueue::printSize(){
 }
 
 void arrayQueue::resize(int newCapacity){
-    element** tmp = new element*[newCapacity];   //nowa tablica o podwojonej pojemnosci
+    elementArray** tmp = new elementArray*[newCapacity];   //nowa tablica o podwojonej pojemnosci
     for(int i = 0; i < size; i++)
         tmp[i] = tab[i];                         //przepisanie elementow
     

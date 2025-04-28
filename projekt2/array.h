@@ -1,27 +1,29 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
+struct elementArray{
+    int wartosc;
+    int priorytet;
+};
+
 class arrayQueue{
     public:
         arrayQueue(int size);
         ~arrayQueue();
 
         void insert(int war, float prio);
-        element extractMax();
-        element findMax();
+        elementArray extractMax();
+        elementArray findMax();
         void modify(int war, float newPrio);
         int printSize();
         
     private:
         int size;
         int capacity;
-        element **tab;
+        elementArray **tab;
         void resize(int newCapacity);
 };
 
-struct element{
-    int wartosc;
-    int priorytet;
-};
+
 
 #endif
