@@ -1,11 +1,10 @@
 #include "chain_hash.h"
-#include <vector>
 
 ChainHash::ChainHash(int size){
     capacity = size;
     table = new Node*[capacity];   
     for(int i = 0; i < capacity; i++){
-        table[i] = nullptr;
+        table[i] = nullptr; //tablica wskaznikow ustwaiana na nullptr
     }
 }
 
@@ -27,6 +26,16 @@ int ChainHash::hash(int key){
 
 void ChainHash::insert(int key, int value){
     int index = hash(key);
+    Node* head = table[index];
+
+    while(head != nullptr){
+        if(head->data.key == key){
+            head->data.value = value; //nadpisanie
+            return;
+        }
+        head = head->next;
+    }
+
     Node* newNode = new Node();
     newNode->data.key = key;
     newNode->data.value = value;
@@ -53,6 +62,5 @@ void ChainHash::remove(int key){
         prev->next = head->next; //z srodka lub konca
     }
     
-    delete head;
+    delete head; 
 }
-
