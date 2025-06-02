@@ -2,7 +2,7 @@
 #include <vector>
 
 OpenHash::OpenHash(int size){
-    table = new Pair[size]; 
+    table = new Pair_open[size]; 
     capacity = size;
     load_factor_count = 0; //obciazenie
     for(int i = 0; i < capacity; i++){
@@ -42,7 +42,7 @@ void OpenHash::insert(int key, int value){
 void OpenHash::resize(){
     int new_size = get_prime_size(capacity * 1.9); //podwojenie rozmiaru
     load_factor_count = 0; //resetujemy obciazenie
-    Pair* new_table = new Pair[new_size];
+    Pair_open* new_table = new Pair_open[new_size];
     
     for(int i = 0; i < new_size; i++){
         new_table[i].key = -1; //inicjalizacja nowej tablicy

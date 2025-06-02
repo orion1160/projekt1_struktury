@@ -1,16 +1,15 @@
 #ifndef CHAIN_HASH_H
 #define CHAIN_HASH_H
 
-struct Pair{
+struct Pair_chain{
     int key;
     int value;
 };
 
 struct Node{
-    Pair data;
+    Pair_chain data;
     Node* next;
 };
-
 
 class ChainHash{
     public:
@@ -25,7 +24,5 @@ class ChainHash{
 
         int hash(int key);
 };
-
-
 
 #endif

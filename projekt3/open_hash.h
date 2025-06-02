@@ -2,7 +2,7 @@
 #define OPEN_HASH_H
 #include <vector>
 
-struct Pair {
+struct Pair_open {
     int key;
     int value;
 };
@@ -20,7 +20,7 @@ class OpenHash{
     private:
         static const std::vector<int> primes;
         int capacity;
-        Pair* table; //tablica 
+        Pair_open* table; //tablica 
         int hash(int key);
         float load_factor_count = 0; //obciazenie - licznik
 
